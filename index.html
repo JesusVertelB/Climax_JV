@@ -19,3 +19,1069 @@
   <!-- Tu CSS local compilado con Tailwind, en vez del CDN -->
   <link rel="stylesheet" href="./dist/output.css">
 </head>
+
+<body
+  class="bg-surface-container-lowest font-sans text-on-surface antialiased selection:bg-warning/20 selection:text-warning text-xs md:text-sm">
+  <!-- Sub-bar: Institutional Header -->
+  <aside
+    class="w-full bg-[#080a0d] border-b border-outline-variant px-4 lg:px-8 py-1.5 flex flex-wrap items-center justify-between text-[11px] font-mono tracking-tight text-neutral-400">
+    <div class="flex items-center gap-3">
+      <span
+        class="inline-flex items-center gap-1.5 text-neutral-300 font-semibold tracking-wider uppercase text-[10px]">
+        <span class="w-1.5 h-1.5 rounded-full bg-warning animate-pulse"></span>
+        República de Colombia • MinAmbiente
+      </span>
+      <span class="text-neutral-600 hidden sm:inline">|</span>
+      <span class="hidden sm:inline text-neutral-400">IDEAM • Instituto de Hidrología, Meteorología y Estudios
+        Ambientales</span>
+    </div>
+    <div class="flex items-center gap-4 text-[10px] text-neutral-400">
+      <span class="flex items-center gap-1"><span class="text-neutral-500">CANAL:</span> GOES-16 ABI-L2</span>
+      <span class="hidden md:inline"><span class="text-neutral-500">TIMESTAMP:</span> 19:42:15 UTC (14:42:15 COT)</span>
+      <span
+        class="text-warning font-mono bg-warning/10 border border-warning/30 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-wider">Red
+        Operativa 99.7%</span>
+    </div>
+  </aside>
+  <!-- Main Institutional Navigation Chrome -->
+  <header class="sticky top-0 z-50 bg-[#0f1216]/95 backdrop-blur border-b border-outline-variant px-4 lg:px-8 py-2.5">
+    <div class="max-w-[1600px] mx-auto flex items-center justify-between gap-4">
+      <!-- Brand & Telemetry Ident -->
+      <div class="flex items-center gap-3">
+        <div
+          class="w-8 h-8 rounded border border-neutral-700 bg-surface-container-high flex items-center justify-center font-mono font-bold text-warning text-xs tracking-tighter">
+          CO
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-mono text-sm font-bold text-neutral-100 tracking-tight">SIHM-COLOMBIA</span>
+            <span
+              class="text-[9px] font-mono px-1 py-0.2 bg-neutral-800 text-neutral-400 border border-neutral-700 rounded">v4.8.2</span>
+          </div>
+          <span class="text-[10px] font-mono text-neutral-400 tracking-wider uppercase">Red Meteorológica y Radares
+            Doppler</span>
+        </div>
+      </div>
+      <!-- Institutional Navigation Tabs -->
+      <nav class="hidden lg:flex items-center gap-1 font-mono text-[11px]">
+        <a class="px-3 py-1.5 rounded bg-neutral-800/80 border border-neutral-700 text-warning font-semibold flex items-center gap-1.5"
+          href="#">
+          <span class="material-symbols-outlined text-[14px]">grid_view</span>
+          Telemetría Nacional
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-neutral-800/50 text-neutral-300 hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+          href="#regiones">
+          <span class="material-symbols-outlined text-[14px]">public</span>
+          Zonificación Regional
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-neutral-800/50 text-neutral-300 hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+          href="#radar">
+          <span class="material-symbols-outlined text-[14px]">radar</span>
+          Radar &amp; ZCIT
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-neutral-800/50 text-neutral-300 hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+          href="#pronostico">
+          <span class="material-symbols-outlined text-[14px]">calendar_month</span>
+          Modelos Numéricos
+        </a>
+        <a class="px-3 py-1.5 rounded hover:bg-neutral-800/50 text-neutral-300 hover:text-neutral-100 transition-colors flex items-center gap-1.5"
+          href="#alertas">
+          <span class="material-symbols-outlined text-[14px] text-warning">warning</span>
+          Boletines Hidrometeorológicos
+        </a>
+      </nav>
+      <!-- Instrument Controls & Units -->
+      <div class="flex items-center gap-2 font-mono">
+        <div
+          class="hidden xl:flex items-center bg-surface-container-low border border-neutral-800 rounded px-2.5 py-1 gap-2 text-[11px] text-neutral-400">
+          <span class="material-symbols-outlined text-[14px] text-neutral-500">search</span>
+          <input
+            class="bg-transparent border-none outline-none text-neutral-200 placeholder:text-neutral-600 w-56 text-[11px] font-mono"
+            placeholder="Filtrar por estación OMM (ej. SKBO, SKRG, SKCG)..." type="text" />
+        </div>
+        <div class="inline-flex rounded border border-neutral-800 bg-neutral-900 p-0.5 text-[10px]">
+          <button class="px-2 py-0.5 rounded bg-neutral-800 text-warning font-mono font-bold">°C / hPa</button>
+          <button class="px-2 py-0.5 rounded text-neutral-400 hover:text-neutral-200 font-mono">°F / inHg</button>
+        </div>
+        <div class="border-l border-neutral-800 pl-2 ml-1 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500/80" title="Link Satelital Activo"></span>
+          <span class="text-[10px] text-neutral-400 uppercase hidden sm:inline">SKBO SYNOP: OK</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="w-full technical-grid min-h-screen pb-16">
+    <!-- METAR Quick Ticker: National Airport & Synoptic Stations -->
+    <div
+      class="w-full border-b border-outline-variant bg-[#0c0f13] px-4 lg:px-8 py-1.5 overflow-x-auto no-scrollbar font-mono text-[11px]">
+      <div class="max-w-[1600px] mx-auto flex items-center gap-6 whitespace-nowrap text-neutral-300">
+        <div class="flex items-center gap-1.5 text-warning font-semibold shrink-0">
+          <span class="material-symbols-outlined text-[14px]">tune</span>
+          <span>ESTACIONES OMM / METAR:</span>
+        </div>
+        <div class="flex items-center gap-5 text-neutral-300">
+          <span class="inline-flex items-center gap-1.5 border-r border-neutral-800 pr-4">
+            <strong class="text-neutral-100 font-semibold">SKBO Bogotá:</strong>
+            <span class="text-neutral-300">14.2°C</span>
+            <span class="text-neutral-500">1024 hPa</span>
+            <span class="text-warning">78% HR</span>
+            <span class="text-neutral-400">Viento 040/08kt</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 border-r border-neutral-800 pr-4">
+            <strong class="text-neutral-100 font-semibold">SKRG Rionegro:</strong>
+            <span class="text-neutral-300">18.0°C</span>
+            <span class="text-neutral-500">1018 hPa</span>
+            <span class="text-warning">84% HR</span>
+            <span class="text-neutral-400">Nuboso 2500ft</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 border-r border-neutral-800 pr-4">
+            <strong class="text-neutral-100 font-semibold">SKCL Cali/Alfonso Bonilla:</strong>
+            <span class="text-neutral-300">27.6°C</span>
+            <span class="text-neutral-500">1012 hPa</span>
+            <span class="text-neutral-400">Viento 320/06kt</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 border-r border-neutral-800 pr-4">
+            <strong class="text-neutral-100 font-semibold">SKBQ Barranquilla:</strong>
+            <span class="text-neutral-300">31.8°C</span>
+            <span class="text-neutral-500">1010 hPa</span>
+            <span class="text-warning">Alisios 030/18kt</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 border-r border-neutral-800 pr-4">
+            <strong class="text-neutral-100 font-semibold">SKBQ Cartagena:</strong>
+            <span class="text-neutral-300">31.0°C</span>
+            <span class="text-neutral-400">Brisa marina NE</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <strong class="text-neutral-100 font-semibold">SKLT Leticia:</strong>
+            <span class="text-neutral-300">29.4°C</span>
+            <span class="text-warning">91% HR Convectivo</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-[1600px] mx-auto px-4 lg:px-8 pt-6 space-y-8">
+      <!-- Section 1: Scientific Telemetry Hero & Primary Synoptic Station -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+        <!-- Left Analysis Column -->
+        <div
+          class="lg:col-span-7 bg-[#111418] border border-outline-variant rounded-lg p-5 flex flex-col justify-between">
+          <div>
+            <div
+              class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant font-mono text-[11px]">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded bg-warning"></span>
+                <span class="text-neutral-200 font-semibold uppercase tracking-wider">Boletín Sinóptico Principal</span>
+              </div>
+              <span class="text-neutral-400">REF: OMM-COL-80222 • CICLO 18Z</span>
+            </div>
+            <div class="space-y-2">
+              <h1
+                class="text-xl md:text-2xl lg:text-3xl font-serif tracking-tight text-neutral-100 font-normal leading-snug">
+                Vigilancia Atmosférica y Balance Hidrometeorológico del Territorio Colombiano
+              </h1>
+              <p class="text-neutral-400 text-xs md:text-sm font-sans leading-relaxed pt-1">
+                Monitoreo instrumental en tiempo real mediante telemetría satelital geoestacionaria GOES-16, perfiles de
+                radiosondeo y red de 1.842 sensores automáticos calibrados bajo estándares de la Organización
+                Meteorológica Mundial (OMM).
+              </p>
+            </div>
+            <!-- Quantitative Telemetry Array -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-5 font-mono">
+              <div class="bg-surface-container-low border border-outline-variant p-2.5 rounded">
+                <span class="text-[10px] text-neutral-500 uppercase block">Estaciones en Línea</span>
+                <span class="text-base font-bold text-neutral-100">1,842</span>
+                <span class="text-[10px] text-neutral-400 flex items-center gap-1 mt-0.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 99.4% disponibilidad
+                </span>
+              </div>
+              <div class="bg-surface-container-low border border-outline-variant p-2.5 rounded">
+                <span class="text-[10px] text-neutral-500 uppercase block">Eje ZCIT Posición</span>
+                <span class="text-base font-bold text-warning">05°40' N</span>
+                <span class="text-[10px] text-neutral-400 mt-0.5 block">Inestabilidad moderada</span>
+              </div>
+              <div class="bg-surface-container-low border border-outline-variant p-2.5 rounded">
+                <span class="text-[10px] text-neutral-500 uppercase block">Reflectividad Máx</span>
+                <span class="text-base font-bold text-neutral-100">54 dBZ</span>
+                <span class="text-[10px] text-warning mt-0.5 block">Pacífico &amp; Piedemonte</span>
+              </div>
+              <div class="bg-surface-container-low border border-outline-variant p-2.5 rounded">
+                <span class="text-[10px] text-neutral-500 uppercase block">Alerta Hidrológica</span>
+                <span class="text-base font-bold text-warning">Nivel II</span>
+                <span class="text-[10px] text-neutral-400 mt-0.5 block">Cuenca Alta Cauca</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="pt-4 mt-4 border-t border-outline-variant flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-neutral-400">
+            <span class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[15px] text-neutral-500">sync_alt</span>
+              Última ingestión de datos: <strong class="text-neutral-300">14:40:02 COT</strong>
+            </span>
+            <div class="flex items-center gap-2">
+              <button
+                class="px-2 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 flex items-center gap-1 text-[11px]">
+                <span class="material-symbols-outlined text-[14px]">download</span> Descargar SYNOP (ASCII)
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Right Station Panel: Bogotá Central Aeropuerto El Dorado / Sabana -->
+        <div class="lg:col-span-5 bg-[#111418] border border-outline-variant rounded-lg p-5">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant">
+            <div class="flex flex-col font-mono">
+              <div class="flex items-center gap-1.5">
+                <span class="font-bold text-sm text-neutral-100">ESTACIÓN BOGOTÁ - D.C. [SKBO]</span>
+              </div>
+              <span class="text-[11px] text-neutral-500">Cordillera Oriental • Lat 04°42'N Lon 74°08'W • Elev 2,548
+                m</span>
+            </div>
+            <span
+              class="px-2 py-0.5 rounded border border-warning/40 bg-warning/10 text-warning font-mono text-[10px] font-semibold">
+              CALIBRADA OMM
+            </span>
+          </div>
+          <!-- Digital Primary Readout -->
+          <div class="flex items-baseline justify-between my-2 font-mono">
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl lg:text-5xl font-bold tracking-tight text-neutral-100">14.2</span>
+              <span class="text-lg text-warning font-semibold">°C</span>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-neutral-300 font-semibold uppercase flex items-center justify-end gap-1">
+                <span class="material-symbols-outlined text-[16px] text-warning">grain</span>
+                Lloviznas Intermitentes
+              </div>
+              <span class="text-[10px] text-neutral-500">Estratos bajos sobre cerros orientales</span>
+            </div>
+          </div>
+          <!-- Strict Telemetry Grid -->
+          <div class="grid grid-cols-3 gap-2 pt-2 font-mono text-[11px]">
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Humedad Relativa</span>
+              <span class="text-neutral-100 font-semibold text-sm">78.4 %</span>
+              <span class="text-[9px] text-neutral-500">P. Rocío: 10.5°C</span>
+            </div>
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Presión Absoluta</span>
+              <span class="text-neutral-100 font-semibold text-sm">1024.1 hPa</span>
+              <span class="text-[9px] text-neutral-500">Tendencia: +0.2</span>
+            </div>
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Vector Viento</span>
+              <span class="text-neutral-100 font-semibold text-sm">040° @ 8 kt</span>
+              <span class="text-[9px] text-neutral-500">Ráfagas: 12 kt</span>
+            </div>
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Pluviometría 24h</span>
+              <span class="text-warning font-semibold text-sm">4.8 mm</span>
+              <span class="text-[9px] text-neutral-500">Tasa: 0.6 mm/h</span>
+            </div>
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Radiación / UV</span>
+              <span class="text-neutral-100 font-semibold text-sm">4.2 Mod</span>
+              <span class="text-[9px] text-neutral-500">410 W/m²</span>
+            </div>
+            <div class="p-2 bg-surface-container-low border border-neutral-800/80 rounded">
+              <span class="text-[10px] text-neutral-500 block">Visibilidad Horizontal</span>
+              <span class="text-neutral-100 font-semibold text-sm">&gt; 9,000 m</span>
+              <span class="text-[9px] text-neutral-500">Techo: 2,200 ft</span>
+            </div>
+          </div>
+          <!-- Station Footer Telemetry -->
+          <div
+            class="mt-3 pt-2.5 border-t border-outline-variant flex items-center justify-between font-mono text-[10px] text-neutral-400">
+            <span>Sensor Barométrico: Vaisala PTB330 (Cal. 2024-11)</span>
+            <span class="text-neutral-300 font-semibold">Toma cada 60s</span>
+          </div>
+        </div>
+      </section>
+      <!-- Section 2: Zonificación Hidrometeorológica (6 Regiones Naturales) -->
+      <section class="space-y-4" id="regiones">
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-2 border-b border-outline-variant gap-2">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-warning text-xs mb-1">
+              <span class="material-symbols-outlined text-[16px]">map</span>
+              <span>DIVISIÓN BIOCLIMÁTICA NACIONAL</span>
+            </div>
+            <h2 class="text-lg md:text-xl font-mono font-bold text-neutral-100 uppercase tracking-tight">
+              Monitoreo Hidrometeorológico por Regiones Naturales
+            </h2>
+          </div>
+          <div class="font-mono text-xs text-neutral-400">
+            Escalas térmicas, gradientes adiabáticos y regímenes de precipitación
+          </div>
+        </div>
+        <!-- 6 Regions Matrix / Structured Technical Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 font-mono">
+          <!-- 1. Región Andina -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-01</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Andina</h3>
+                </div>
+                <span class="text-xs text-neutral-300 font-bold">08°C – 22°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Tres ramales cordilleranos y valles interandinos (Magdalena y Cauca). Inestabilidad orográfica
+                vespertina con nubosidad estratocúmulo y precipitaciones estratiformes.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Pisos Térmicos:</span>
+                  <span class="text-neutral-300">Cálido a Páramo</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Humedad Media:</span>
+                  <span class="text-neutral-300">76%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Régimen Hídrico:</span>
+                  <span class="text-warning">Bimodal activo</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 684</span>
+              <span class="text-warning font-semibold">Precipitación 70%</span>
+            </div>
+          </div>
+          <!-- 2. Región Caribe -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-02</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Caribe</h3>
+                </div>
+                <span class="text-xs text-neutral-300 font-bold">28°C – 36°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Franja litoral continental, depresión momposina y península de La Guajira. Dominio de vientos alisios
+                del noreste con subsidencia seca en zona norte y radiación ultravioleta crítica.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Vientos Alisios:</span>
+                  <span class="text-neutral-300">NE 18-24 kt</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Índice Radiación UV:</span>
+                  <span class="text-warning">11+ Extremo</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Condición Mar:</span>
+                  <span class="text-neutral-300">Oleaje 1.8 – 2.2 m</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 342</span>
+              <span class="text-neutral-300 font-semibold">Bajo riesgo pluvial</span>
+            </div>
+          </div>
+          <!-- 3. Región Pacífica -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-03</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Pacífica</h3>
+                </div>
+                <span class="text-xs text-warning font-bold">24°C – 28°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Chocó biogeográfico y faja costera occidental. Franja de convergencia de alta energía con núcleos
+                convectivos profundos y regímenes pluviométricos superiores a 8,000 mm anuales.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Humedad Sat:</span>
+                  <span class="text-warning font-bold">92%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Tipo de Precipitación:</span>
+                  <span class="text-neutral-300">Convección continua</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Actividad Eléctrica:</span>
+                  <span class="text-warning">Frecuente</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 198</span>
+              <span class="text-warning font-semibold">Alerta Naranja Cuencas</span>
+            </div>
+          </div>
+          <!-- 4. Región Orinoquía -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-04</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Orinoquía</h3>
+                </div>
+                <span class="text-xs text-neutral-300 font-bold">26°C – 35°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Planicie oriental y piedemonte llanero. Alta insolación diurna con convección térmica localizada en el
+                flanco este cordillerano durante el horario 15:00-18:00 COT.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Viento Predominante:</span>
+                  <span class="text-neutral-300">Este 12-16 km/h</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Piedemonte:</span>
+                  <span class="text-warning">Chubascos térmicos</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Evapotranspiración:</span>
+                  <span class="text-neutral-300">Elevada</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 275</span>
+              <span class="text-neutral-300 font-semibold">Régimen estable</span>
+            </div>
+          </div>
+          <!-- 5. Región Amazónica -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-05</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Amazónica</h3>
+                </div>
+                <span class="text-xs text-neutral-300 font-bold">25°C – 32°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Bosque húmedo tropical del sur nacional. Masa de aire ecuatorial cálida y muy húmeda; ciclos diurnos de
+                condensación acelerada y tormentas celulares aisladas.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Humedad Media:</span>
+                  <span class="text-neutral-300">88%</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Presión Troposférica:</span>
+                  <span class="text-neutral-300">1010 hPa</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">CAPE Estimado:</span>
+                  <span class="text-warning">&gt; 1,800 J/kg</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 186</span>
+              <span class="text-warning font-semibold">Celdas convectivas</span>
+            </div>
+          </div>
+          <!-- 6. Región Insular -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-3">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-neutral-800 text-warning text-[10px] font-bold">R-06</span>
+                  <h3 class="text-sm font-bold text-neutral-100">Región Insular</h3>
+                </div>
+                <span class="text-xs text-neutral-300 font-bold">28°C – 31°C</span>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Archipiélagos oceánicos de San Andrés, Providencia y Santa Catalina en el Mar Caribe; Gorgona y Malpelo
+                en el Océano Pacífico. Dinámica estrictamente marítima.
+              </p>
+              <div
+                class="space-y-1 text-[11px] bg-surface-container-low p-2.5 rounded border border-neutral-800/80 mb-3">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Viento Alisio Caribe:</span>
+                  <span class="text-neutral-300">ENE 15-20 kt</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Altura de Ola Significativa:</span>
+                  <span class="text-neutral-300">1.4 – 1.6 m</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Visibilidad Náutica:</span>
+                  <span class="text-neutral-300">10 NM Óptima</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-neutral-800/80 text-[10px]">
+              <span class="text-neutral-400">Estaciones activas: 57</span>
+              <span class="text-neutral-300 font-semibold">Navegación normal</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 3: Radar Satelital Doppler, GOES-16 & Modelos de Convección -->
+      <section class="space-y-4" id="radar">
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-2 border-b border-outline-variant gap-2">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-warning text-xs mb-1">
+              <span class="material-symbols-outlined text-[16px]">sensors</span>
+              <span>RED NACIONAL DE RADARES METEOROLÓGICOS</span>
+            </div>
+            <h2 class="text-lg md:text-xl font-mono font-bold text-neutral-100 uppercase tracking-tight">
+              Reflectividad Doppler y Análisis ZCIT
+            </h2>
+          </div>
+          <div class="flex items-center gap-2 font-mono text-[11px]">
+            <span class="text-neutral-400">Radares integrados: Barrancabermeja, Carimagua, Cerro Munchique,
+              Tablazo</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Radar Visual Display Frame -->
+          <div
+            class="lg:col-span-8 bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <!-- Screen Header Controls -->
+            <div
+              class="flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-neutral-800 font-mono text-[11px]">
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-neutral-200 font-bold">COMPUESTO DOPPLER NACIONAL • ELEVACIÓN 0.5°</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button
+                  class="px-2 py-0.5 rounded bg-neutral-800 border border-neutral-700 text-warning font-semibold">Precipitación
+                  (dBZ)</button>
+                <button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-neutral-400">IR GOES-16</button>
+                <button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-neutral-400">Vectores Viento</button>
+                <button class="px-2 py-0.5 rounded hover:bg-neutral-800 text-neutral-400">Rayos GLM</button>
+              </div>
+            </div>
+            <!-- Technical Radar Graphic Screen -->
+            <div
+              class="relative w-full h-[400px] bg-[#07090c] border border-neutral-900 rounded overflow-hidden flex items-center justify-center">
+              <!-- Cartographic Base Image (Muted Technical Sat) -->
+              <img alt="Carta geográfica y satelital de Colombia para calibración meteorológica"
+                class="absolute inset-0 w-full h-full object-cover opacity-25 filter grayscale contrast-125"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA1dKpAhuVsvWkxdnGjyYoc8P3luzJyc0uXrAoae-kjHAnifxr3lHLLIKYN7NXuLjo-QRUGiCo2shuJEmI6aQ343v_wstLasBcnI0CmH7sETexGI1zXVhhaD83V_RO3BguWsXCedygsh1lBWo3dKeBZn1h1UBY2e70M0OtaPcPZwY-dZ6JwRYJGiQiiUjETZ8s5WNPN5idIZe1LDUpWe1vezqpSB54Zx8UzU1a5L1g4iwkS-bPFSdcZw" />
+              <!-- Technical Reticle & Range Rings (SVG Overlay) -->
+              <svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" viewbox="0 0 800 500"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid Lines -->
+                <line stroke="#333a42" stroke-dasharray="2 4" stroke-width="0.75" x1="400" x2="400" y1="0" y2="500">
+                </line>
+                <line stroke="#333a42" stroke-dasharray="2 4" stroke-width="0.75" x1="0" x2="800" y1="250" y2="250">
+                </line>
+                <!-- Radar Rings (100km, 200km, 300km) -->
+                <circle cx="400" cy="250" r="80" stroke="#444b54" stroke-width="0.75"></circle>
+                <circle cx="400" cy="250" r="160" stroke="#444b54" stroke-dasharray="4 4" stroke-width="0.75"></circle>
+                <circle cx="400" cy="250" r="230" stroke="#444b54" stroke-width="0.5"></circle>
+                <!-- Azimuth markings -->
+                <text fill="#6b7280" font-family="JetBrains Mono" font-size="9" x="408" y="20">360° N</text>
+                <text fill="#6b7280" font-family="JetBrains Mono" font-size="9" x="750" y="246">090° E</text>
+                <text fill="#6b7280" font-family="JetBrains Mono" font-size="9" x="408" y="492">180° S</text>
+                <text fill="#6b7280" font-family="JetBrains Mono" font-size="9" x="15" y="246">270° W</text>
+                <!-- Echo Clusters (Convective cells simulation in precise muted tones) -->
+                <!-- Pacific Convective Mass -->
+                <circle cx="280" cy="270" fill="#f6b73c" fill-opacity="0.18" r="35" stroke="#f6b73c" stroke-width="1">
+                </circle>
+                <circle cx="280" cy="270" fill="#f6b73c" fill-opacity="0.35" r="18"></circle>
+                <text fill="#ffd899" font-family="JetBrains Mono" font-size="9" x="235" y="240">CELDA CHOCO 48
+                  dBZ</text>
+                <!-- Andean Cloud Band -->
+                <ellipse cx="430" cy="280" fill="#f6b73c" fill-opacity="0.12" rx="65" ry="25" stroke="#f6b73c"
+                  stroke-width="0.75" transform="rotate(-35 430 280)"></ellipse>
+                <circle cx="440" cy="260" fill="#eab308" fill-opacity="0.4" r="10"></circle>
+                <text fill="#9d8f7b" font-family="JetBrains Mono" font-size="9" x="460" y="250">BOGOTÁ-ORIENTAL</text>
+                <!-- Sweeping Scanner Ray -->
+                <line stroke="#ffd899" stroke-opacity="0.7" stroke-width="1.5" x1="400" x2="600" y1="250" y2="120">
+                </line>
+                <path d="M400 250 L600 120 A 230 230 0 0 0 540 80 Z" fill="#ffd899" fill-opacity="0.04"></path>
+              </svg>
+              <!-- Real-time HUD Badges -->
+              <div
+                class="absolute top-3 left-3 bg-[#0d1014]/90 border border-neutral-800 px-2 py-1 rounded text-[10px] font-mono">
+                <span class="text-neutral-500">CENTRO DOPPLER:</span> <strong class="text-neutral-200">BARRANCABERMEJA
+                  (07°01'N 73°47'W)</strong>
+              </div>
+              <div
+                class="absolute bottom-3 left-3 bg-[#0d1014]/90 border border-neutral-800 px-2 py-1 rounded text-[10px] font-mono">
+                <span class="text-neutral-500">FILTRO CLUTTER:</span> <span class="text-emerald-400">ACTIVO (DOPPLER
+                  DUAL-POL)</span>
+              </div>
+              <div
+                class="absolute bottom-3 right-3 bg-[#0d1014]/90 border border-neutral-800 px-2.5 py-1.5 rounded font-mono text-[9px] flex items-center gap-2">
+                <span class="text-neutral-400">dBZ:</span>
+                <span class="px-1 bg-[#1e293b] text-neutral-400">10</span>
+                <span class="px-1 bg-[#334155] text-neutral-300">20</span>
+                <span class="px-1 bg-[#475569] text-neutral-200">30</span>
+                <span class="px-1 bg-[#ca8a04] text-neutral-900 font-bold">40</span>
+                <span class="px-1 bg-[#eab308] text-neutral-900 font-bold">50</span>
+                <span class="px-1 bg-[#f59e0b] text-neutral-900 font-bold">60+</span>
+              </div>
+            </div>
+            <!-- Playback Timeline Controller -->
+            <div class="pt-3 flex items-center justify-between gap-3 font-mono text-[11px]">
+              <div class="flex items-center gap-2">
+                <button
+                  class="px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-warning border border-neutral-700 font-semibold flex items-center gap-1"
+                  id="radarPlayBtn">
+                  <span class="material-symbols-outlined text-[14px]">play_arrow</span>
+                  Bucle (T - 180 min)
+                </button>
+                <span class="text-neutral-500 text-[10px]">Paso: 10 min</span>
+              </div>
+              <div class="flex-1 max-w-md bg-neutral-800 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-warning h-full w-4/5"></div>
+              </div>
+              <span class="text-neutral-300 text-[11px]">14:40 COT (Último Barrido)</span>
+            </div>
+          </div>
+          <!-- Scientific Phenomena & Atmospheric Indexes -->
+          <div class="lg:col-span-4 flex flex-col gap-3 font-mono">
+            <!-- ZCIT Status Card -->
+            <div class="bg-[#111418] border border-outline-variant rounded-lg p-4">
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-2.5">
+                <span class="text-[10px] uppercase text-neutral-400 tracking-wider">Mecanismo Sinóptico</span>
+                <span class="text-[9px] px-1.5 py-0.5 rounded bg-warning/15 text-warning font-bold">En
+                  Convergencia</span>
+              </div>
+              <h3 class="text-sm font-bold text-neutral-100 mb-1">Zona de Confluencia Intertropical (ZCIT)</h3>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Oscilación del eje principal entre 5°N y 7°N. Alta inestabilidad termodinámica que favorece celdas de
+                lluvia en Chocó, Valle del Cauca y vertiente occidental de la Cordillera Occidental.
+              </p>
+              <div class="bg-surface-container-low p-2 rounded border border-neutral-800/80 text-[11px] space-y-1">
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Desplazamiento medio:</span>
+                  <span class="text-neutral-200">12 nudos (Dirección ENE)</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-neutral-500">Agua Precipitable (PW):</span>
+                  <span class="text-warning font-semibold">52 mm (Alto contenido)</span>
+                </div>
+              </div>
+            </div>
+            <!-- Calidad del Aire (ICA) -->
+            <div class="bg-[#111418] border border-outline-variant rounded-lg p-4">
+              <div class="flex items-center justify-between border-b border-neutral-800 pb-2 mb-2.5">
+                <span class="text-[10px] uppercase text-neutral-400 tracking-wider">Monitoreo de Emisiones</span>
+                <span class="text-[10px] text-neutral-400">Índice ICA (PM2.5)</span>
+              </div>
+              <div class="space-y-2 text-[11px]">
+                <div class="flex items-center justify-between border-b border-neutral-800/50 pb-1">
+                  <span class="text-neutral-300">Bogotá D.C. (Red RMCAB)</span>
+                  <span class="text-neutral-100 font-semibold flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 42 Bueno
+                  </span>
+                </div>
+                <div class="flex items-center justify-between border-b border-neutral-800/50 pb-1">
+                  <span class="text-neutral-300">Medellín (Red SIATA)</span>
+                  <span class="text-warning font-semibold flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-warning"></span> 68 Moderado
+                  </span>
+                </div>
+                <div class="flex items-center justify-between border-b border-neutral-800/50 pb-1">
+                  <span class="text-neutral-300">Cali (Estación La Flora)</span>
+                  <span class="text-neutral-100 font-semibold flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 38 Bueno
+                  </span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-neutral-300">Barranquilla (Zona Puerto)</span>
+                  <span class="text-warning font-semibold flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-warning"></span> 55 Moderado
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- Tropospheric Barometric Field -->
+            <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-neutral-500 uppercase block">Gradiente Isobárico Regional</span>
+                <span class="text-sm font-bold text-neutral-200">1012.8 hPa (NMM)</span>
+                <span class="text-[10px] text-neutral-500 block">Gradiente meridional débil (&lt; 1.5 hPa/100km)</span>
+              </div>
+              <span class="material-symbols-outlined text-[24px] text-neutral-600">compress</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 4: Modelos Numéricos y Pronóstico a 5 Días -->
+      <section class="space-y-4" id="pronostico">
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-2 border-b border-outline-variant gap-2">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-warning text-xs mb-1">
+              <span class="material-symbols-outlined text-[16px]">timeline</span>
+              <span>SIMULACIÓN NUMÉRICA ECMWF &amp; GFS (ENLACE CALIBRADO)</span>
+            </div>
+            <h2 class="text-lg md:text-xl font-mono font-bold text-neutral-100 uppercase tracking-tight">
+              Pronóstico Hidrometeorológico a 5 Días
+            </h2>
+          </div>
+          <div class="font-mono text-xs text-neutral-400">
+            Resolución horizontal 9 km • Validación por ensamble de 50 perturbaciones
+          </div>
+        </div>
+        <!-- 5-Day Linear Cards Matrix -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 font-mono">
+          <!-- Lunes -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <div class="border-b border-neutral-800 pb-2 mb-2">
+              <div class="flex justify-between items-baseline">
+                <span class="font-bold text-neutral-100 text-sm">LUN 14 ABR</span>
+                <span class="text-[10px] text-warning font-semibold">HOY</span>
+              </div>
+              <span class="text-[10px] text-neutral-500">Ciclo 18Z</span>
+            </div>
+            <div class="py-3 flex flex-col items-center text-center">
+              <span class="material-symbols-outlined text-[30px] text-warning mb-1">rainy</span>
+              <div class="text-xl font-bold text-neutral-100">19° <span class="text-sm font-normal text-neutral-500">/
+                  11°</span></div>
+              <span class="text-[11px] text-neutral-300 mt-1">Lluvias dispersas</span>
+            </div>
+            <div class="bg-surface-container-low p-2 rounded text-[10px] space-y-0.5 border border-neutral-800">
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Prob. Lluvia:</span>
+                <span class="text-warning font-bold">70%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Acumulado:</span>
+                <span class="text-neutral-300">6 – 12 mm</span>
+              </div>
+            </div>
+          </div>
+          <!-- Martes -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <div class="border-b border-neutral-800 pb-2 mb-2">
+              <div class="flex justify-between items-baseline">
+                <span class="font-bold text-neutral-100 text-sm">MAR 15 ABR</span>
+                <span class="text-[10px] text-neutral-500">D+1</span>
+              </div>
+              <span class="text-[10px] text-neutral-500">Ciclo 00Z</span>
+            </div>
+            <div class="py-3 flex flex-col items-center text-center">
+              <span class="material-symbols-outlined text-[30px] text-neutral-400 mb-1">partly_cloudy_day</span>
+              <div class="text-xl font-bold text-neutral-100">21° <span class="text-sm font-normal text-neutral-500">/
+                  12°</span></div>
+              <span class="text-[11px] text-neutral-300 mt-1">Intervalos nubosos</span>
+            </div>
+            <div class="bg-surface-container-low p-2 rounded text-[10px] space-y-0.5 border border-neutral-800">
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Prob. Lluvia:</span>
+                <span class="text-neutral-300 font-bold">35%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Acumulado:</span>
+                <span class="text-neutral-300">1 – 3 mm</span>
+              </div>
+            </div>
+          </div>
+          <!-- Miércoles -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <div class="border-b border-neutral-800 pb-2 mb-2">
+              <div class="flex justify-between items-baseline">
+                <span class="font-bold text-neutral-100 text-sm">MIÉ 16 ABR</span>
+                <span class="text-[10px] text-neutral-500">D+2</span>
+              </div>
+              <span class="text-[10px] text-neutral-500">Ciclo 00Z</span>
+            </div>
+            <div class="py-3 flex flex-col items-center text-center">
+              <span class="material-symbols-outlined text-[30px] text-warning mb-1">wb_sunny</span>
+              <div class="text-xl font-bold text-neutral-100">23° <span class="text-sm font-normal text-neutral-500">/
+                  10°</span></div>
+              <span class="text-[11px] text-neutral-300 mt-1">Predominio seco</span>
+            </div>
+            <div class="bg-surface-container-low p-2 rounded text-[10px] space-y-0.5 border border-neutral-800">
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Prob. Lluvia:</span>
+                <span class="text-neutral-300 font-bold">15%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Acumulado:</span>
+                <span class="text-neutral-300">&lt; 1 mm</span>
+              </div>
+            </div>
+          </div>
+          <!-- Jueves -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <div class="border-b border-neutral-800 pb-2 mb-2">
+              <div class="flex justify-between items-baseline">
+                <span class="font-bold text-neutral-100 text-sm">JUE 17 ABR</span>
+                <span class="text-[10px] text-neutral-500">D+3</span>
+              </div>
+              <span class="text-[10px] text-neutral-500">Ciclo 00Z</span>
+            </div>
+            <div class="py-3 flex flex-col items-center text-center">
+              <span class="material-symbols-outlined text-[30px] text-warning mb-1">thunderstorm</span>
+              <div class="text-xl font-bold text-neutral-100">18° <span class="text-sm font-normal text-neutral-500">/
+                  12°</span></div>
+              <span class="text-[11px] text-warning mt-1">Tormenta severa</span>
+            </div>
+            <div class="bg-surface-container-low p-2 rounded text-[10px] space-y-0.5 border border-neutral-800">
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Prob. Lluvia:</span>
+                <span class="text-warning font-bold">85%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Acumulado:</span>
+                <span class="text-warning">15 – 25 mm</span>
+              </div>
+            </div>
+          </div>
+          <!-- Viernes -->
+          <div class="bg-[#111418] border border-outline-variant rounded-lg p-3 flex flex-col justify-between">
+            <div class="border-b border-neutral-800 pb-2 mb-2">
+              <div class="flex justify-between items-baseline">
+                <span class="font-bold text-neutral-100 text-sm">VIE 18 ABR</span>
+                <span class="text-[10px] text-neutral-500">D+4</span>
+              </div>
+              <span class="text-[10px] text-neutral-500">Ciclo 00Z</span>
+            </div>
+            <div class="py-3 flex flex-col items-center text-center">
+              <span class="material-symbols-outlined text-[30px] text-neutral-300 mb-1">rainy</span>
+              <div class="text-xl font-bold text-neutral-100">19° <span class="text-sm font-normal text-neutral-500">/
+                  11°</span></div>
+              <span class="text-[11px] text-neutral-300 mt-1">Chubascos residuales</span>
+            </div>
+            <div class="bg-surface-container-low p-2 rounded text-[10px] space-y-0.5 border border-neutral-800">
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Prob. Lluvia:</span>
+                <span class="text-neutral-300 font-bold">60%</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-neutral-500">Acumulado:</span>
+                <span class="text-neutral-300">5 – 10 mm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Technical Directives Strip -->
+        <div
+          class="bg-[#111418] border border-outline-variant rounded-lg p-4 grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[20px] text-warning shrink-0">speed</span>
+            <div>
+              <strong class="text-neutral-200 block mb-0.5">Ventilación y Cizalladura</strong>
+              <p class="font-sans text-neutral-400 text-xs">Gradientes de viento vertical moderados en aproximación a
+                terminales aéreas andinas (SKBO, SKRG).</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[20px] text-warning shrink-0">solar_power</span>
+            <div>
+              <strong class="text-neutral-200 block mb-0.5">Radiación y Flujo Térmico</strong>
+              <p class="font-sans text-neutral-400 text-xs">Exposición solar máxima en La Guajira y litoral Atlántico.
+                Índice UV en rango de alerta preventiva.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-[20px] text-neutral-400 shrink-0">waves</span>
+            <div>
+              <strong class="text-neutral-200 block mb-0.5">Estado Marítimo y Altamar</strong>
+              <p class="font-sans text-neutral-400 text-xs">Condición favorable en el litoral Caribe central; precaución
+                en aguas abiertas por mar de fondo del NE.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 5: Boletines Oficiales de Alerta y Gestión del Riesgo -->
+      <section class="space-y-4" id="alertas">
+        <div class="flex flex-col md:flex-row md:items-end justify-between pb-2 border-b border-outline-variant gap-2">
+          <div>
+            <div class="flex items-center gap-2 font-mono text-warning text-xs mb-1">
+              <span class="material-symbols-outlined text-[16px]">shield</span>
+              <span>SISTEMA NACIONAL DE GESTIÓN DEL RIESGO DE DESASTRES (SNGRD)</span>
+            </div>
+            <h2 class="text-lg md:text-xl font-mono font-bold text-neutral-100 uppercase tracking-tight">
+              Boletines Oficiales de Alerta Hidrometeorológica
+            </h2>
+          </div>
+          <div class="font-mono text-xs text-neutral-400">
+            Boletín Técnico N° 208-2025 • Validez: 24 Horas
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Official Alert Cards -->
+          <div class="lg:col-span-8 space-y-3 font-mono">
+            <!-- Alerta Naranja Técnica (Ámbar) -->
+            <div class="bg-[#111418] border-l-4 border-warning border border-outline-variant rounded-r-lg p-4">
+              <div
+                class="flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-neutral-800 text-[11px]">
+                <div class="flex items-center gap-2">
+                  <span class="px-1.5 py-0.5 rounded bg-warning text-black font-bold text-[10px]">ALERTA NARANJA</span>
+                  <strong class="text-neutral-100">Amenaza de Deslizamientos de Tierra en Zonas de Ladera</strong>
+                </div>
+                <span class="text-neutral-400">COD: ALR-GEO-2025-04</span>
+              </div>
+              <p class="font-sans text-neutral-300 text-xs leading-relaxed mb-3">
+                Saturación hídrica severa del suelo superficial en laderas de la Cordillera Central (Caldas, Risaralda,
+                Quindío y Tolima). Monitoreo instrumental prioritario en el corredor vial La Línea y cuenca alta del Río
+                Combeima por umbrales pluviométricos antecedentes superados (&gt; 120 mm / 7 días).
+              </p>
+              <div
+                class="flex flex-wrap items-center justify-between gap-2 text-[10px] text-neutral-400 bg-surface-container-low p-2 rounded border border-neutral-800">
+                <span>COORD: 04°25'N 75°40'W • Altitud: 1,800 – 3,200 m</span>
+                <span class="text-warning font-semibold">Protocolo: Inspección visual de escarpes y grietas</span>
+              </div>
+            </div>
+            <!-- Alerta Amarilla Técnica -->
+            <div class="bg-[#111418] border-l-4 border-neutral-500 border border-outline-variant rounded-r-lg p-4">
+              <div
+                class="flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-neutral-800 text-[11px]">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="px-1.5 py-0.5 rounded bg-neutral-800 text-neutral-200 border border-neutral-700 font-bold text-[10px]">ALERTA
+                    AMARILLA</span>
+                  <strong class="text-neutral-100">Crecientes Súbitas en Cuencas Hidrográficas del Magdalena
+                    Medio</strong>
+                </div>
+                <span class="text-neutral-400">COD: ALR-HID-2025-11</span>
+              </div>
+              <p class="font-sans text-neutral-300 text-xs leading-relaxed mb-3">
+                Incrementos moderados de nivel y variaciones hidrométricas en tributarios directos: ríos Negro, Nare y
+                Carare. Estaciones limnimétricas de Puerto Salgar y Barrancabermeja registran niveles dentro de márgenes
+                preventivos pero con tendencia ascendente sostenida.
+              </p>
+              <div
+                class="flex flex-wrap items-center justify-between gap-2 text-[10px] text-neutral-400 bg-surface-container-low p-2 rounded border border-neutral-800">
+                <span>ESTACIONES: Limnígrafo Barranca (Nivel: 4.12 m • Umbral: 5.20 m)</span>
+                <span class="text-neutral-300 font-semibold">Protocolo: Restricción preventiva de faenas
+                  nocturnas</span>
+              </div>
+            </div>
+          </div>
+          <!-- Emergency National Directory -->
+          <div
+            class="lg:col-span-4 bg-[#111418] border border-outline-variant rounded-lg p-4 font-mono flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 border-b border-neutral-800 pb-2 mb-3">
+                <span class="material-symbols-outlined text-warning text-[18px]">support_agent</span>
+                <h3 class="text-xs font-bold text-neutral-100 uppercase tracking-wider">Enlaces Operativos de Emergencia
+                </h3>
+              </div>
+              <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-3">
+                Canales de radiocomunicación y enlace directo con la Sala de Crisis de la UNGRD y organismos de socorro:
+              </p>
+              <div class="space-y-1.5 text-xs">
+                <a class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-neutral-800 hover:border-neutral-700 text-neutral-200"
+                  href="tel:123">
+                  <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-neutral-500">call</span>
+                    Línea Única Nacional
+                  </span>
+                  <strong class="text-warning">123</strong>
+                </a>
+                <a class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-neutral-800 hover:border-neutral-700 text-neutral-200"
+                  href="tel:144">
+                  <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-neutral-500">shield</span>
+                    Defensa Civil Colombiana
+                  </span>
+                  <strong class="text-warning">144</strong>
+                </a>
+                <a class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-neutral-800 hover:border-neutral-700 text-neutral-200"
+                  href="tel:132">
+                  <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-neutral-500">medical_services</span>
+                    Cruz Roja Colombiana
+                  </span>
+                  <strong class="text-warning">132</strong>
+                </a>
+                <a class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-neutral-800 hover:border-neutral-700 text-neutral-200"
+                  href="tel:119">
+                  <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-neutral-500">fire_truck</span>
+                    Bomberos Oficiales
+                  </span>
+                  <strong class="text-warning">119</strong>
+                </a>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-neutral-800 text-[10px] text-neutral-500 flex justify-between">
+              <span>UNGRD Central Bogotá D.C.</span>
+              <span class="text-emerald-400 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Guardias 24/7
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Institutional Technical Footer -->
+  <footer
+    class="w-full bg-[#090b0e] border-t border-outline-variant font-mono text-[11px] text-neutral-400 py-8 px-4 lg:px-8">
+    <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 pb-6 border-b border-neutral-800">
+      <!-- Col 1 -->
+      <div>
+        <div class="flex items-center gap-2 text-neutral-200 font-bold mb-2">
+          <span class="w-2.5 h-2.5 bg-warning rounded-sm"></span>
+          <span>IDEAM • COLOMBIA</span>
+        </div>
+        <p class="font-sans text-neutral-400 text-xs leading-relaxed">
+          Instituto de Hidrología, Meteorología y Estudios Ambientales. Autoridad científica oficial para la generación
+          de pronósticos, avisos y cartografía meteorológica del Estado colombiano.
+        </p>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <h4 class="text-neutral-200 font-bold mb-2 uppercase text-[10px] tracking-wider">Cuencas y Aforos Limnimétricos
+        </h4>
+        <ul class="space-y-1 text-xs">
+          <li class="flex justify-between"><span>Río Magdalena (Tolima-Bolívar)</span> <span
+              class="text-neutral-200 font-semibold">Normal</span></li>
+          <li class="flex justify-between"><span>Río Cauca (Valle-Antioquia)</span> <span
+              class="text-warning font-semibold">Monitoreo</span></li>
+          <li class="flex justify-between"><span>Río Atrato (Chocó)</span> <span
+              class="text-warning font-semibold">Alerta II</span></li>
+          <li class="flex justify-between"><span>Río Meta y Piedemonte</span> <span
+              class="text-neutral-200 font-semibold">Normal</span></li>
+        </ul>
+      </div>
+      <!-- Col 3 -->
+      <div>
+        <h4 class="text-neutral-200 font-bold mb-2 uppercase text-[10px] tracking-wider">Normas Técnicas y Protocolos
+        </h4>
+        <ul class="space-y-1 text-neutral-400 font-sans text-xs">
+          <li>• OMM Estándar N° 49 (Reglamento Técnico)</li>
+          <li>• Calibración Barométrica y Termométrica ISO/IEC 17025</li>
+          <li>• Protocolo de Intercambio Global GTS/WMO</li>
+          <li>• Formato BUFR, SYNOP, METAR y SPECI</li>
+        </ul>
+      </div>
+      <!-- Col 4 -->
+      <div>
+        <h4 class="text-neutral-200 font-bold mb-2 uppercase text-[10px] tracking-wider">Acceso a Datos y API</h4>
+        <p class="font-sans text-neutral-400 text-xs leading-relaxed mb-2">
+          Servicios web OGC (WMS/WFS) para modelación climática y datos brutos de telemetría ciudadana.
+        </p>
+        <div class="flex items-center gap-2">
+          <a class="px-2 py-1 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 rounded text-[10px]"
+            href="#">Portal de Datos Abiertos</a>
+          <a class="px-2 py-1 bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border border-neutral-700 rounded text-[10px]"
+            href="#">API REST</a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="max-w-[1600px] mx-auto pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-neutral-500 text-[10px]">
+      <div>
+        © 2025 Instituto de Hidrología, Meteorología y Estudios Ambientales (IDEAM). República de Colombia.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Bogotá D.C. Calle 25 D N° 96 B - 70</span>
+        <span>Conmutador: +57 (601) 3527160</span>
+        <span class="text-warning">Línea Gratuita: 018000 110012</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./src/main.js"></script>
+
+</body>

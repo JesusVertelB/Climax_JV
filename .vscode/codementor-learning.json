@@ -1,0 +1,16 @@
+{
+  "CSS-002": {
+    "occurrences": 5,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-09-19T18:57:56.428Z",
+    "last_seen": "2026-09-19T19:01:14.124Z"
+  },
+  "SEC-004": {
+    "occurrences": 14,
+    "confidence": 1,
+    "mastered_explicitly": false,
+    "first_seen": "2026-09-19T19:04:52.653Z",
+    "last_seen": "2026-09-19T19:07:47.561Z"
+  }
+}
