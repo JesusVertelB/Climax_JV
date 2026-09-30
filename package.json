@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "serve": "live-server --port=5500 --ignore=node_modules,dist",
+    "dev": "concurrently \"npm:build:css\" \"npm:serve\""
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,8 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "@tailwindcss/forms": "^0.5.11",
+    "concurrently": "^10.0.5",
+    "live-server": "^1.2.0",
     "tailwindcss": "^4.3.3"
   }
 }
